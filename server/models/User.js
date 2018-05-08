@@ -8,8 +8,8 @@ const userSchema = new Schema(
     password: String,
     email: String,
     age: Number,
-    genre: String,
-    location: [ { city: String, country: String, continent: String } ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
+    genre: String, // Hombre, Mujer, Otro, Prefiero-no decirlo
+    location: [ {city: String , country: String ,  continent: String } ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
     questions: [ { type: Schema.Types.ObjectId, ref: 'Question' } ]
   },
   {
