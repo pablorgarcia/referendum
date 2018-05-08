@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 
 mongoose.connect('mongodb://localhost/referendum');
 
-const Reply = require('../models/Question.js');
 const User = require('../models/User.js');
 
 const users = [
