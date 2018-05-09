@@ -13,7 +13,7 @@ const users = [
     email: 'a@a.a',
     age: 32,
     genre: 'Mujer',
-    location: [ {city:'Madrid', country:'España', continent:'Europa'} ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
+    location: [ { city:'Madrid', country:'España', continent:'Europa' } ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
     questions: []
   },
   {
@@ -23,7 +23,7 @@ const users = [
     email: 'b@b.b',
     age: 18,
     genre: 'Hombre',
-    location: [ {city:'Sao Paulo', country:'Brasil', continent:'America del Sur'} ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
+    location: [ { city:'Sao Paulo', country:'Brasil', continent:'America del Sur' } ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
     questions: []
   },
   {
@@ -33,7 +33,7 @@ const users = [
     email: 'c@c.c',
     age: 22,
     genre: 'Mujer',
-    location: [ {city:'Oslo', country:'Noruega', continent:'Europa'} ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
+    location: [ { city:'Oslo', country:'Noruega', continent:'Europa' } ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
     questions: []
   },
   {
@@ -43,7 +43,7 @@ const users = [
     email: 'd@d.d',
     age: 24,
     genre: 'Hombre',
-    location: [ {city:'Nueva York', country:'EEUU', continent:'America del Norte'} ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
+    location: [ { city:'Nueva York', country:'EEUU', continent:'America del Norte' } ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
     questions: []
   },
   {
@@ -53,7 +53,7 @@ const users = [
     email: 'e@e.e',
     age: 44,
     genre: 'Mujer',
-    location: [ {city:'Berlín', country:'Alemania', continent:'Europa'} ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
+    location: [ { city:'Berlín', country:'Alemania', continent:'Europa' } ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
     questions: []
   }
 ]
