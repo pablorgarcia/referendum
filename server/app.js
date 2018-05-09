@@ -85,6 +85,9 @@ app.use("/", index);
 const authRouter = require("./routes/auth");
 app.use("/api/auth", authRouter);
 
+const questionRouter = require("./routes/question");
+app.use("/api/question", questionRouter);
+
 
 app.use(function(req, res) {
   res.sendfile(__dirname + '/public/index.html');

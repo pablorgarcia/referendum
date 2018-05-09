@@ -25,6 +25,36 @@ const users = [
     genre: 'Hombre',
     location: [ {city:'Sao Paulo', country:'Brasil', continent:'America del Sur'} ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
     questions: []
+  },
+  {
+    username: 'c',
+    lastname: 'lc',
+    password: bcrypt.hashSync('c', 10),
+    email: 'c@c.c',
+    age: 22,
+    genre: 'Mujer',
+    location: [ {city:'Oslo', country:'Noruega', continent:'Europa'} ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
+    questions: []
+  },
+  {
+    username: 'd',
+    lastname: 'ld',
+    password: bcrypt.hashSync('d', 10),
+    email: 'd@d.d',
+    age: 24,
+    genre: 'Hombre',
+    location: [ {city:'Nueva York', country:'EEUU', continent:'America del Norte'} ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
+    questions: []
+  },
+  {
+    username: 'e',
+    lastname: 'le',
+    password: bcrypt.hashSync('e', 10),
+    email: 'e@e.e',
+    age: 44,
+    genre: 'Mujer',
+    location: [ {city:'Berlín', country:'Alemania', continent:'Europa'} ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
+    questions: []
   }
 ]
 

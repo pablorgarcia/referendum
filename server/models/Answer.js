@@ -1,13 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const questionSchema = new Schema(
+const answerSchema = new Schema(
   {
-    question: String,
+    answer: { enum: ['yes', 'not', 'no answer'] },
+    question: { type: Schema.Types.ObjectId, ref: 'Question' },
     author: { type: Schema.Types.ObjectId, ref: 'User' },
-    endDate: Date,
-    location: String, // 2dsphere
-    counter: Number
   },
   {
     timestamps: {
@@ -17,5 +15,5 @@ const questionSchema = new Schema(
   }
 );
 
-const Question = mongoose.model("Question", questionSchema);
-module.exports = Question;
+const Answer = mongoose.model("Answer", answerSchema);
+module.exports = Answer;
