@@ -3,4 +3,10 @@
 
 <app-login-form></app-login-form>
 
+<div *ngFor="let q of questions">
+  <h2>{{q.question}}</h2>
+</div>
+
+<app-question></app-question>
+
 <app-footer></app-footer>

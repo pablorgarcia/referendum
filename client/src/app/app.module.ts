@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { QuestionComponent } from './question/question.component';
 import { NewQuestionComponent } from './new-question/new-question.component';
+import { QuestionService } from './services/question.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import { NewQuestionComponent } from './new-question/new-question.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [SessionService],
+  providers: [
+    SessionService,
+    QuestionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
