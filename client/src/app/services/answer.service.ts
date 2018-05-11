@@ -13,4 +13,9 @@ export class AnswerService {
       .map((res) => res.json());
   }
 
+  createVote(question, answer, user) {
+    return this.http.post(`${environment.BASEURL}/api/answer`, {question, answer, user})
+      .map((res) => res.json());
+  }
+
 }

@@ -15,6 +15,7 @@ import { NewQuestionComponent } from './new-question/new-question.component';
 import { QuestionService } from './services/question.service';
 import { ChartsModule } from 'ng2-charts';
 import { HomeComponent } from './home/home.component';
+import { AnswerService } from './services/answer.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HomeComponent } from './home/home.component';
   ],
   providers: [
     SessionService,
-    QuestionService
+    QuestionService,
+    AnswerService
   ],
   bootstrap: [AppComponent]
 })
