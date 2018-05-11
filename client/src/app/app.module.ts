@@ -13,6 +13,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { QuestionComponent } from './question/question.component';
 import { NewQuestionComponent } from './new-question/new-question.component';
 import { QuestionService } from './services/question.service';
+import { ChartsModule } from 'ng2-charts';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,15 @@ import { QuestionService } from './services/question.service';
     FooterComponent,
     ProfileComponent,
     QuestionComponent,
-    NewQuestionComponent
+    NewQuestionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ChartsModule
   ],
   providers: [
     SessionService,

@@ -3,6 +3,14 @@
 <h1>pregunta</h1>
 <ul>
   <li><button>Yes</button></li>
-  <li><button>not ask</button></li>
+  <li><button>Not ask</button></li>
   <li><button>Not</button></li>
 </ul>
+
+<canvas baseChart
+  [data]="doughnutChartData"
+  [labels]="doughnutChartLabels"
+  [chartType]="doughnutChartType"
+  (chartHover)="chartHovered($event)"
+  (chartClick)="chartClicked($event)">
+</canvas>
