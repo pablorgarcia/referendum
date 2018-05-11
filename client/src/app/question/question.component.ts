@@ -11,7 +11,7 @@ export class QuestionComponent implements OnInit {
 
   // Doughnut chart.js
   // https://valor-software.com/ng2-charts
-  public doughnutChartLabels: string[] = ['Yes', 'Not', 'Not ask'];
+  public doughnutChartLabels: string[] = ["Yes", "No", "Don't know"];
   public doughnutChartData: number[] = [350, 450, 100]; // aqui traemos los datos del SI, NO, NO CONTESTA
   public doughnutChartType: string = 'doughnut';
 
@@ -30,6 +30,10 @@ export class QuestionComponent implements OnInit {
   // events chart
   public chartHovered(e: any): void {
     console.log(e);
+  }
+
+  submitVote(option) {
+
   }
 
 }

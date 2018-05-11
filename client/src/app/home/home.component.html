@@ -1,8 +1,5 @@
-<p>
-  home works!
-</p>
-
+<p>home works!</p>
 
 <div *ngFor="let q of questions">
-    <h2><a [routerLink]="[question/q.id]">{{q.question}}</a></h2>
-  </div>
+  <h2><a [routerLink]="['/question', q._id]">{{q.question}}</a></h2>
+</div>

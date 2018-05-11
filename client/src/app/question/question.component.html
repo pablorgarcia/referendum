@@ -1,12 +1,14 @@
 <p>question works!</p>
 
 <h1>pregunta</h1>
+
 <ul>
-  <li><button>Yes</button></li>
-  <li><button>Not ask</button></li>
-  <li><button>Not</button></li>
+  <li><button (click)="submitVote('yes')">Yes</button></li>
+  <li><button (click)="submitVote('no')">No</button></li>
+  <li><button (click)="submitVote('dont know')">Don't know</button></li>
 </ul>
 
+<div style="display: block">
 <canvas baseChart
   [data]="doughnutChartData"
   [labels]="doughnutChartLabels"
@@ -14,3 +16,4 @@
   (chartHover)="chartHovered($event)"
   (chartClick)="chartClicked($event)">
 </canvas>
+</div>
