@@ -62,7 +62,6 @@ require("./passport")(app);
 
 
 // Express View engine setup
-
 app.use(
   require("node-sass-middleware")({
     src: path.join(__dirname, "public"),
@@ -87,6 +86,9 @@ app.use("/api/auth", authRouter);
 
 const questionRouter = require("./routes/question");
 app.use("/api/question", questionRouter);
+
+const answerRouter = require("./routes/answer");
+app.use("/api/answer", answerRouter);
 
 
 app.use(function(req, res) {

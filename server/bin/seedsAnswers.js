@@ -7,9 +7,9 @@ const Answer = require('../models/Answer.js');
 
 const answers = [
   {
-    answer: 'not',
+    answer: 'no',
     question: '5af3076ca60bf3cd7ffacd5c',
-    author: '5af1e1c3dfea31aec28e9dc8',
+    user: '5af1e1c3dfea31aec28e9dc8',
   }
 ]
 

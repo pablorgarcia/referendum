@@ -13,8 +13,7 @@ import { SessionService } from '../services/session.service';
 })
 export class QuestionComponent implements OnInit {
 
-  // Doughnut chart.js
-  // https://valor-software.com/ng2-charts
+  // Doughnut chart.js - https://valor-software.com/ng2-charts
   public doughnutChartLabels: Array<String> = ['Yes', 'No', 'Don\'t know'];
   public doughnutChartData: number[] = [350, 450, 100]; // aqui traemos los datos del SI, NO, NO CONTESTA
   public doughnutChartType: String = 'doughnut';

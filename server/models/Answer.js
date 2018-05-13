@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 const answerSchema = new Schema(
   {
-    answer: { enum: ['yes', 'not', 'no answer'] },
+    answer: { enum: ['yes', 'no', 'dont know'] },
     question: { type: Schema.Types.ObjectId, ref: 'Question' },
-    author: { type: Schema.Types.ObjectId, ref: 'User' },
+    user: { type: Schema.Types.ObjectId, ref: 'User' },
   },
   {
     timestamps: {

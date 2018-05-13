@@ -1,0 +1,14 @@
+.block-list {
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
+}
+
+.block-list p {
+  padding: 0 3vw;
+  margin: 0;
+}
+
+.block-list h2 {
+  font-size: 4vh;
+}

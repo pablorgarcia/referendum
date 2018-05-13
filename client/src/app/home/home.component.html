@@ -1,5 +1,6 @@
-<p>home works!</p>
+<i>home works!</i>
 
-<div *ngFor="let q of questions">
+<div *ngFor="let q of questions" class="block-list">
+  <p>{{q.counter}}</p>
   <h2><a [routerLink]="['/question', q._id]">{{q.question}}</a></h2>
 </div>

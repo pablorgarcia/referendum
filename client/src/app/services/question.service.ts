@@ -16,6 +16,18 @@ export class QuestionService {
   getList() {
     return this.http.get(`${environment.BASEURL}/api/question`)
       .map((res) => res.json());
+/*
+en el map() tengo que devolverlos de mayor a menor Counter
+*/
+
+/* Wadaloop: Llamada a la BBDD ordenado por distancia
+Product.find({ APIlocation: { $near: { $geometry: { type: "Point", coordinates: [userLoc.long, userLoc.lat] }}} })
+    .then(theProduct => {
+      res.render("index", { user: req.user, theProduct, userLoc });
+    })
+    .catch(err => { console.log(err); });
+*/
+
   }
 
   // Create
