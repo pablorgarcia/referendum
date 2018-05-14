@@ -19,6 +19,12 @@ router.post("/", (req, res, next) => {
     .then(answers => res.json(answers))
     .catch(e => next(e));
 });
+
+router.get("/:idQuestion", (req, res, next) => {
+  Answer.find({question: req.params.idQuestion})
+    .then(answers => res.json(answers))
+    .catch(e => next(e));
+});
 /*
 // Retrive DETAIL
 router.get("/:id", (req, res, next) => {

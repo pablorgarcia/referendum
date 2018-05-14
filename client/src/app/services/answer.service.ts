@@ -18,4 +18,9 @@ export class AnswerService {
       .map((res) => res.json());
   }
 
+  getAnswer(id) {
+    return this.http.get(`${environment.BASEURL}/api/answer/${id}`)
+      .map((res) => res.json());
+  }
+
 }

@@ -8,13 +8,25 @@ import { SessionService } from '../services/session.service';
 })
 
 export class LoginFormComponent implements OnInit {
-  username: string;
-  password: string;
-  error: string;
+  username: String;
+  lastname: String;
+  password: String;
+  email: String;
+  age: String;
+  genre: String; // Hombre, Mujer, Otro, Prefiero-no decirlo
+  location: String;
+  isLogin: Boolean = false;
+  error: String;
 
   constructor(public sessionService: SessionService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.sessionService.user) {
+      this.isLogin = true;
+    } else {
+      this.isLogin = false;
+    }
+  }
 
   login() {
     console.log(this.username, this.password);
@@ -24,7 +36,8 @@ export class LoginFormComponent implements OnInit {
   signup() {
     const user = {
       username: this.username,
-      password: this.password
+      password: this.password,
+      email: this.email
     };
     console.log(user);
     this.sessionService.signup(user).subscribe();

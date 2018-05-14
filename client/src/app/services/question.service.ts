@@ -38,7 +38,7 @@ Product.find({ APIlocation: { $near: { $geometry: { type: "Point", coordinates: 
 
   // Retrive DETAIL
   getQuestId(id) {
-    return this.http.get(`${environment.BASEURL}/api/question/:${id}`)
+    return this.http.get(`${environment.BASEURL}/api/question/${id}`)
       .map((res) => res.json());
   }
 
@@ -50,8 +50,14 @@ Product.find({ APIlocation: { $near: { $geometry: { type: "Point", coordinates: 
 
   // Delete
   deleteQuestId(id) {
-    return this.http.delete(`${environment.BASEURL}/api/question/:${id}`)
+    return this.http.delete(`${environment.BASEURL}/api/question/${id}`)
       .map((res) => res.json());
   }
 
+
+  // Retrive DETAIL
+  getAnswersByQuest(idQuestion) {
+    return this.http.get(`${environment.BASEURL}/api/answer/${idQuestion}`)
+      .map((res) => res.json());
+  }
 }

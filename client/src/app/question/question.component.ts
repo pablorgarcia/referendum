@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { environment } from '../../environments/environment';
-import { AnswerService } from '../services/answer.service';
 import { ActivatedRoute } from '@angular/router';
-import { QuestionService } from '../services/question.service';
+import { environment } from '../../environments/environment';
 import { SessionService } from '../services/session.service';
+import { QuestionService } from '../services/question.service';
+import { AnswerService } from '../services/answer.service';
 
 @Component({
   selector: 'app-question',
@@ -17,23 +17,23 @@ export class QuestionComponent implements OnInit {
   public doughnutChartLabels: Array<String> = ['Yes', 'No', 'Don\'t know'];
   public doughnutChartData: number[] = [350, 450, 100]; // aqui traemos los datos del SI, NO, NO CONTESTA
   public doughnutChartType: String = 'doughnut';
-  questionId: any;
-  question: any;
   user: any;
-
-
-//  question = 'aqui tengo que traerme el json que viene de BBDD';
+  questionId: any;
+  question: any = {};
+  answer: any = [];
 
   constructor(
     public http: Http,
-    private answerService: AnswerService,
     public route: ActivatedRoute,
+    public sessionService: SessionService,
     public questionService: QuestionService,
-    public sessionService: SessionService
+    private answerService: AnswerService
   ) {
     this.route.params.subscribe(params => {
+      // console.log(params.id);
       this.questionService.getQuestId(params.id).subscribe(q => this.question = q);
       this.questionId = params.id;
+      this.questionService.getAnswersByQuest(params.id).subscribe(a => this.answer = a);
     });
   }
 

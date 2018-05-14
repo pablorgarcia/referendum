@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Question = require("../models/Question");
+const Answer = require("../models/Answer");
 const _ = require("lodash");
 
 const fields = Object.keys(_.omit(Question.schema.paths, ["__v", "_id"]));
@@ -22,8 +23,10 @@ router.post("/", (req, res, next) => {
 
 // Retrive DETAIL
 router.get("/:id", (req, res, next) => {
+  // console.log('entra')
+  // console.log(req.params.id)
   Question.findById(req.params.id)
-    .then(quests => res.json(quests))
+    .then(quest => res.json(quest))
     .catch(e => next(e));
 });
 
@@ -42,5 +45,12 @@ router.delete("/:id", (req, res, next) => {
     .then(() => res.json({ message: `SUCESSFUL DELETE ${req.params.id}` }))
     .catch(e => next(e));
 });
+
+/* // Retrive DETAIL
+router.get("/answer/:id", (req, res, next) => {
+  Answer.findById(req.params.id)
+    .then(answers => res.json(answers))
+    .catch(e => next(e));
+}); */
 
 module.exports = router;
