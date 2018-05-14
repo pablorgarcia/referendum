@@ -10,8 +10,9 @@
 
     <button (click)="login()">login</button>
   </form>
-  
-  <form class="invisible">
+
+  <!--form class="invisible"-->
+  <form>
     <h2>Signup</h2>
     <label>Username</label>
     <input type="text" [(ngModel)]="username" name="username" required />
@@ -31,7 +32,7 @@
       <option value="Other" selected>Other</option>
     </select>
     <br>
-    <select [(ngModel)]="location" name="location" required>
+    <select [(ngModel)]="location" name="location" required >
       <option value="London">London</option>
       <option value="Berlin">Berlin</option>
       <option value="San Francisco">San Francisco</option>

@@ -12,15 +12,15 @@ import { AnswerService } from '../services/answer.service';
   styleUrls: ['./question.component.css']
 })
 export class QuestionComponent implements OnInit {
-
   // Doughnut chart.js - https://valor-software.com/ng2-charts
   public doughnutChartLabels: Array<String> = ['Yes', 'No', 'Don\'t know'];
-  public doughnutChartData: number[] = [350, 450, 100]; // aqui traemos los datos del SI, NO, NO CONTESTA
+  public doughnutChartData: number[] = [];
   public doughnutChartType: String = 'doughnut';
   user: any;
   questionId: any;
   question: any = {};
-  answer: any = [];
+  answers: any = [];
+
 
   constructor(
     public http: Http,
@@ -30,17 +30,14 @@ export class QuestionComponent implements OnInit {
     private answerService: AnswerService
   ) {
     this.route.params.subscribe(params => {
-      // console.log(params.id);
       this.questionService.getQuestId(params.id).subscribe(q => this.question = q);
       this.questionId = params.id;
-      this.questionService.getAnswersByQuest(params.id).subscribe(a => this.answer = a);
     });
   }
 
   ngOnInit() {
     this.user = this.sessionService.user;
   }
-
 
   // events chart
   public chartClicked(e: any): void {
@@ -53,12 +50,21 @@ export class QuestionComponent implements OnInit {
   }
 
   // crear el create vote en el servicio
-  submitVote(option: string) {
+  public submitVote(option: string) {
     this.question.counter++;
-    this.answerService.createVote(this.questionId, option, this.user._id).subscribe();
+    this.answerService.createVote(this.questionId, option, this.sessionService.user).subscribe();
     this.questionService.updateQuestId(this.question);
-
+    this.questionService.getAnswersByQuest(this.questionId).subscribe(a => this.answers = a);
+    this.numAnswer(this.answers);
   }
+
+  public numAnswer(answers) {
+    const options = ['yes', 'no', 'dont know'];
+    options.forEach(opt => {
+      this.doughnutChartData.push(answers.reduce(function (n, valorActual) {
+        return n + (valorActual.answer === opt);
+      }, 0));
+    });
+  }
+
 }
-
-

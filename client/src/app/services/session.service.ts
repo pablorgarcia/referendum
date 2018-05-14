@@ -29,7 +29,7 @@ export class SessionService {
   signup(user) {
     return this.http.post(`${environment.BASEURL}/api/auth/signup`, user, this.options)
       .map(res => res.json())
-      .map(user => this.handleUser(user))
+      .map(us => this.handleUser(us))
       .catch(this.handleError);
   }
 
