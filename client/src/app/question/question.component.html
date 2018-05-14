@@ -8,6 +8,8 @@
   <li><button (click)="submitVote('dont know')">Don't know</button></li>
 </ul>
 
+<p>Voted: {{question.counter}}</p>
+
 <div style="display: block">
 <canvas baseChart
   [data]="doughnutChartData"

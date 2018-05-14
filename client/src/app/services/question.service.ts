@@ -44,7 +44,7 @@ Product.find({ APIlocation: { $near: { $geometry: { type: "Point", coordinates: 
 
   // Update
   updateQuestId(updates) {
-    return this.http.put(`${environment.BASEURL}/api/question/:id`, {updates})
+    return this.http.put(`${environment.BASEURL}/api/question/${updates._id}`, updates)
       .map((res) => res.json());
   }
 
@@ -54,10 +54,4 @@ Product.find({ APIlocation: { $near: { $geometry: { type: "Point", coordinates: 
       .map((res) => res.json());
   }
 
-
-  // Retrive DETAIL
-  getAnswersByQuest(idQuestion) {
-    return this.http.get(`${environment.BASEURL}/api/answer/${idQuestion}`)
-      .map((res) => res.json());
-  }
 }

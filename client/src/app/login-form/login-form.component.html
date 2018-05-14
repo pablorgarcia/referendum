@@ -1,6 +1,6 @@
 <div *ngIf="!sessionService.user">
   
-  <form>
+  <form >
     <h2>Login</h2>
     <label>Username</label>
     <input type="text" [(ngModel)]="username" name="username" required />
@@ -12,7 +12,7 @@
   </form>
 
   <!--form class="invisible"-->
-  <form>
+  <!--form class="invisible">
     <h2>Signup</h2>
     <label>Username</label>
     <input type="text" [(ngModel)]="username" name="username" required />
@@ -41,7 +41,7 @@
     </select>
 
     <button (click)="signup()">signup</button>
-  </form>
+  </form-->
   
   <p class="error">{{ error }}</p>
   

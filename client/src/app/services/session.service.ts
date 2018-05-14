@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class SessionService {
 
-  user: any;
+  user: any = {};
   userEvent: EventEmitter<any> = new EventEmitter();
   options: any = { withCredentials: true };
 

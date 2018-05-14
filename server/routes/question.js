@@ -33,7 +33,6 @@ router.get("/:id", (req, res, next) => {
 // Update
 router.put("/:id", (req, res, next) => {
   const updates = _.pick(req.body, fields);
-
   Question.findByIdAndUpdate(req.params.id, updates, { new: true })
     .then(quests => res.json(quests))
     .catch(e => next(e));

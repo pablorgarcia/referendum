@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const answerSchema = new Schema(
   {
-    answer: { enum: ['yes', 'no', 'dont know'] },
+    answer: { type: String, enum: ['yes', 'no', 'dont know'] },
     question: { type: Schema.Types.ObjectId, ref: 'Question' },
     user: { type: Schema.Types.ObjectId, ref: 'User' },
   },

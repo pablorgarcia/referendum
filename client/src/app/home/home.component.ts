@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
     this.questionService.getList().subscribe(q => {
       this.questions = q;
       console.log('entra');
-      console.log(this.questions[0]._id);
+      // console.log(this.questions[0]._id);
       console.log(q);
     }
     );

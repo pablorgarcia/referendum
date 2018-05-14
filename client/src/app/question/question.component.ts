@@ -14,7 +14,7 @@ import { AnswerService } from '../services/answer.service';
 export class QuestionComponent implements OnInit {
   // Doughnut chart.js - https://valor-software.com/ng2-charts
   public doughnutChartLabels: Array<String> = ['Yes', 'No', 'Don\'t know'];
-  public doughnutChartData: number[] = [];
+  public doughnutChartData: number[] = [0, 0, 0];
   public doughnutChartType: String = 'doughnut';
   user: any;
   questionId: any;
@@ -52,19 +52,33 @@ export class QuestionComponent implements OnInit {
   // crear el create vote en el servicio
   public submitVote(option: string) {
     this.question.counter++;
-    this.answerService.createVote(this.questionId, option, this.sessionService.user).subscribe();
-    this.questionService.updateQuestId(this.question);
-    this.questionService.getAnswersByQuest(this.questionId).subscribe(a => this.answers = a);
-    this.numAnswer(this.answers);
+    this.answerService.createVote(this.questionId, option, this.sessionService.user._id).subscribe();
+    this.questionService.updateQuestId(this.question).subscribe(() => {
+
+      this.answerService.getAnswersByQuest(this.questionId).subscribe(a => {
+        this.answers = a;
+        this.numAnswer(this.answers);
+      });
+    });
   }
 
   public numAnswer(answers) {
+    this.doughnutChartData = [];
     const options = ['yes', 'no', 'dont know'];
-    options.forEach(opt => {
-      this.doughnutChartData.push(answers.reduce(function (n, valorActual) {
-        return n + (valorActual.answer === opt);
-      }, 0));
-    });
+      const yes = answers.reduce(function (n, valorActual) {
+        return n + (valorActual.answer === 'yes');
+      }, 0);
+      this.doughnutChartData.push(yes);
+      const no = answers.reduce(function (n, valorActual) {
+        return n + (valorActual.answer === 'no');
+      }, 0);
+      this.doughnutChartData.push(no);
+      const dknow = answers.reduce(function (n, valorActual) {
+        return n + (valorActual.answer === 'dont know');
+      }, 0);
+      this.doughnutChartData.push(dknow);
+      console.log(this.doughnutChartData);
+
   }
 
 }

@@ -14,11 +14,11 @@ router.get("/", (req, res, next) => {
 
  // Create
 router.post("/", (req, res, next) => {
- // console.log('entraaaa');
- // console.log(req.body);
   const ph = _.pick(req.body, fields);
   Answer.create(ph)
-    .then(answers => res.json(answers))
+    .then(answers => {
+      res.json(answers)
+    })
     .catch(e => next(e));
 });
 

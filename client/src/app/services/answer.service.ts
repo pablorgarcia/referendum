@@ -23,4 +23,10 @@ export class AnswerService {
       .map((res) => res.json());
   }
 
+  // Retrive DETAIL
+  getAnswersByQuest(idQuestion) {
+    return this.http.get(`${environment.BASEURL}/api/answer/${idQuestion}`)
+      .map((res) => res.json());
+  }
+
 }
