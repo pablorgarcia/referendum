@@ -90,6 +90,9 @@ app.use("/api/question", questionRouter);
 const answerRouter = require("./routes/answer");
 app.use("/api/answer", answerRouter);
 
+const locationRouter = require("./routes/location");
+app.use("/api/location", locationRouter);
+
 
 app.use(function(req, res) {
   res.sendfile(__dirname + '/public/index.html');

@@ -7,9 +7,9 @@ export class LocationService {
 
   constructor(public http: Http) {}
 
-  getCountries(continentSelected) {
-    return this.http.get(`https://restcountries.eu/rest/v2/region/${continentSelected}`)
-      .map((res) => res.json());
+  getCountries(value) {
+    return this.http.get(`${environment.BASEURL}/api/location/${value}`)
+    .map((res) => res.json());
   }
 
 }

@@ -18,8 +18,14 @@ export class LoginFormComponent implements OnInit {
   location: String;
   isLogin: Boolean = false;
   error: String;
+  countries: Array<any> = [];
+  country: String;
+  index: Number;
 
-  constructor(public sessionService: SessionService) {}
+  constructor(
+    public sessionService: SessionService,
+    public locationService: LocationService
+  ) {}
 
   ngOnInit() {
     if (this.sessionService.user) {
@@ -44,4 +50,19 @@ export class LoginFormComponent implements OnInit {
     this.sessionService.signup(user).subscribe();
   }
 
+  showCountries() { // showDataLocation()
+    // aqui manejamos los countries/cities del json que nos devuelve el servicio location
+    // y pintamos en el <select option> del login
+  }
+  getCountries(value) {
+    this.locationService.getCountries(value).subscribe(c => {
+      console.log(c);
+      this.countries = c;
+    });
+  }
+
+  getCities(i) {
+    console.log(i)
+    this.index = Number(i);
+  }
 }

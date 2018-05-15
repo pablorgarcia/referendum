@@ -1,6 +1,6 @@
-<div *ngIf="!sessionService.user">
-  
-  <form >
+<!-- <div *ngIf="!sessionService.user"> -->
+
+  <form class="invisible">
     <h2>Login</h2>
     <label>Username</label>
     <input type="text" [(ngModel)]="username" name="username" required />
@@ -12,7 +12,7 @@
   </form>
 
   <!--form class="invisible"-->
-  <form class="invisible">
+  <form>
     <h2>Signup</h2>
     <label>Username</label>
     <input type="text" [(ngModel)]="username" name="username" required />
@@ -33,7 +33,7 @@
     </select>
     <br>
     <!-- continentes -->
-    <select (click)="getCountries(value)" name="continent" required >
+    <select (change)="getCountries(con.value)" #con name="continent" required >
       <option value="Africa">Africa</option>
       <option value="Americas">Americas</option>
       <option value="Asia">Asia</option>
@@ -41,12 +41,12 @@
       <option value="Oceania">Oceania</option>
     </select>
     <!-- paises del continente elegido -->
-    <select [(ngModel)]="location" name="location" required >
-      <!--option value=""></option-->
+    <select [(ngModel)]="country" name="country" #coun required (change)="getCities(coun.value)">
+      <option *ngFor="let c of countries; let i" value="{{i}}">{{c.name}}</option>
     </select>
     <!-- ciudades del pais elejido -->
-    <select [(ngModel)]="location" name="location" required >
-      <!--option value=""></option-->
+    <select *ngIf="country" [(ngModel)]="location" name="location" required >
+        <option value="{{countries[index].capital}}">{{countries[index].capital}}</option>
     </select>
 
     <button (click)="signup()">signup</button>
@@ -54,7 +54,7 @@
   
   <p class="error">{{ error }}</p>
   
-</div>
+<!-- </div> -->
 
 <div *ngIf="sessionService.user">
     <button (click)="sessionService.logout().subscribe()">logout</button>
