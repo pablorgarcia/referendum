@@ -15,7 +15,7 @@ export class LoginFormComponent implements OnInit {
   email: String;
   age: String;
   genre: String; // Hombre, Mujer, Otro, Prefiero-no decirlo
-  location: String;
+  location: Array<object>;
   isLogin: Boolean = false;
   error: String;
   countries: Array<any> = [];
@@ -44,25 +44,27 @@ export class LoginFormComponent implements OnInit {
     const user = {
       username: this.username,
       password: this.password,
-      email: this.email
+      email: this.email,
+      location: this.location,
     };
     console.log(user);
     this.sessionService.signup(user).subscribe();
   }
 
-  showCountries() { // showDataLocation()
-    // aqui manejamos los countries/cities del json que nos devuelve el servicio location
-    // y pintamos en el <select option> del login
-  }
   getCountries(value) {
     this.locationService.getCountries(value).subscribe(c => {
+      console.log('c --------------------');
       console.log(c);
       this.countries = c;
+      /* c.subscribe(d => {
+        console.log('------ lll -------');
+        console.log(d.capital);
+      }); */
     });
   }
 
   getCities(i) {
-    console.log(i)
+    console.log(i);
     this.index = Number(i);
   }
 }

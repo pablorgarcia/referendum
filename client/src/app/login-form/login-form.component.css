@@ -1,2 +1,7 @@
 .visible { display: block; }
 .invisible { display: none; }
+
+.login-cont {
+  padding: 3vh 6vw;
+  background-color: #88B3A8;
+}

@@ -16,11 +16,12 @@ export class QuestionComponent implements OnInit {
   public doughnutChartLabels: Array<String> = ['Yes', 'No', 'Don\'t know'];
   public doughnutChartData: number[] = [0, 0, 0];
   public doughnutChartType: String = 'doughnut';
-  user: any;
+  user: any = '';
   questionId: any;
   question: any = {};
   answers: any = [];
   voted: Boolean = false;
+  boo: Boolean = true;
 
 
   constructor(
@@ -52,7 +53,8 @@ export class QuestionComponent implements OnInit {
 
   // crear el create vote en el servicio
   public submitVote(option: string) {
-    if (this.voted = false) {
+    this.sessionService.user ? this.boo = false : this.boo = true;
+    if (this.voted === false) {
       this.question.counter++;
       this.answerService.createVote(this.questionId, option, this.sessionService.user._id).subscribe();
       this.questionService.updateQuestId(this.question).subscribe(() => {

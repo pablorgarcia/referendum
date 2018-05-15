@@ -1,7 +1,12 @@
+main {
+  padding: 3vh 6vw;
+}
+
 .block-list {
   display: flex;
   justify-content: start;
   align-items: baseline;
+  padding: 2vh 0;
 }
 
 .block-list p {
@@ -16,3 +21,11 @@
   text-decoration: none;
 }
 
+.block-list span {
+  display: block;
+  color: #5b5b5b;
+  background-color: #DBDBDB;
+  padding: 0.4vh 0.8vw;
+  border-radius: 5px;
+  align-self: center;
+}

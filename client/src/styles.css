@@ -1,12 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Miriam+Libre:700');
 
-h1 { font-family: 'Miriam Libre', sans-serif; }
+body {
+  margin: 0;
+  background-color: #EBEBEB;
+  color: #313332;
+}
+
+h1 {
+  font-family: 'Miriam Libre', sans-serif;
+  color: #915050;
+  margin: 0;
+}
+
 h1 a,
 h1 a:hover {
   color: black;
   text-decoration: none;
 }
+
+h2 { margin: 0; }
 
 a {
   transition-delay: 0s;
@@ -14,9 +27,10 @@ a {
   transition-property: all;
   transition-timing-function: line;
 
-  color: black;
+  color: #313332;
   text-decoration: none;
 }
 a:hover {
-  color: royalblue;
+  color: #7A7F7D;
 }
+

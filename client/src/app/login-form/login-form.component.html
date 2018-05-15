@@ -1,18 +1,20 @@
+<div class="login-cont">
+
 <!-- <div *ngIf="!sessionService.user"> -->
 
-  <form class="invisible">
+  <!--form class="invisible"-->
+  <form>
     <h2>Login</h2>
     <label>Username</label>
-    <input type="text" [(ngModel)]="username" name="username" required />
+    <input type="text" [(ngModel)]="username" name="username1" required />
     <br>
     <label>Password</label>
-    <input type="password" [(ngModel)]="password" name="password" required />
+    <input type="password" [(ngModel)]="password" name="password1" required />
 
     <button (click)="login()">login</button>
   </form>
 
-  <!--form class="invisible"-->
-  <form>
+  <form [ngClass]="{'visible': isClassVisible }">
     <h2>Signup</h2>
     <label>Username</label>
     <input type="text" [(ngModel)]="username" name="username" required />
@@ -34,6 +36,7 @@
     <br>
     <!-- continentes -->
     <select (change)="getCountries(con.value)" #con name="continent" required >
+      <option selected>Choose your continent</option>
       <option value="Africa">Africa</option>
       <option value="Americas">Americas</option>
       <option value="Asia">Asia</option>
@@ -41,21 +44,23 @@
       <option value="Oceania">Oceania</option>
     </select>
     <!-- paises del continente elegido -->
-    <select [(ngModel)]="country" name="country" #coun required (change)="getCities(coun.value)">
-      <option *ngFor="let c of countries; let i" value="{{i}}">{{c.name}}</option>
+    <select (change)="getCities(coun.value)" [(ngModel)]="country" #coun name="country" required>
+      <option *ngFor="let c of countries; let i = index" value="{{i}}">{{c.name}}</option>
     </select>
     <!-- ciudades del pais elejido -->
     <select *ngIf="country" [(ngModel)]="location" name="location" required >
-        <option value="{{countries[index].capital}}">{{countries[index].capital}}</option>
+      <option value="{{countries[index].capital}}" selected >{{countries[index].capital}}</option>
     </select>
 
     <button (click)="signup()">signup</button>
   </form>
   
+  <p>Don't have an account? <a (click)="isClassVisible = !isClassVisible;">Sign up</a></p>
+
   <p class="error">{{ error }}</p>
   
 <!-- </div> -->
 
-<div *ngIf="sessionService.user">
-    <button (click)="sessionService.logout().subscribe()">logout</button>
+<button *ngIf="sessionService.user" (click)="sessionService.logout().subscribe()">logout</button>
+
 </div>
