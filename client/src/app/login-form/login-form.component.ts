@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../services/session.service';
+import { LocationService } from '../services/location.service';
 
 @Component({
   selector: 'app-login-form',
@@ -42,4 +43,5 @@ export class LoginFormComponent implements OnInit {
     console.log(user);
     this.sessionService.signup(user).subscribe();
   }
+
 }

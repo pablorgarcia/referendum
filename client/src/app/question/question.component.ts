@@ -20,6 +20,7 @@ export class QuestionComponent implements OnInit {
   questionId: any;
   question: any = {};
   answers: any = [];
+  voted: Boolean = false;
 
 
   constructor(
@@ -51,15 +52,19 @@ export class QuestionComponent implements OnInit {
 
   // crear el create vote en el servicio
   public submitVote(option: string) {
-    this.question.counter++;
-    this.answerService.createVote(this.questionId, option, this.sessionService.user._id).subscribe();
-    this.questionService.updateQuestId(this.question).subscribe(() => {
-
-      this.answerService.getAnswersByQuest(this.questionId).subscribe(a => {
-        this.answers = a;
-        this.numAnswer(this.answers);
+    if (this.voted = false) {
+      this.question.counter++;
+      this.answerService.createVote(this.questionId, option, this.sessionService.user._id).subscribe();
+      this.questionService.updateQuestId(this.question).subscribe(() => {
+        this.answerService.getAnswersByQuest(this.questionId).subscribe(a => {
+          this.answers = a;
+          this.numAnswer(this.answers);
+        });
       });
-    });
+      this.voted = true;
+    } else {
+      // mandamos un mensaje de "ya has votado"
+    }
   }
 
   public numAnswer(answers) {

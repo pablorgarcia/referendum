@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 import { RouterModule} from '@angular/router';
 import { routes } from './routes';
 import { SessionService } from './services/session.service';
+import { QuestionService } from './services/question.service';
+import { AnswerService } from './services/answer.service';
+import { LocationService } from './services/location.service';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,10 +15,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { QuestionComponent } from './question/question.component';
 import { NewQuestionComponent } from './new-question/new-question.component';
-import { QuestionService } from './services/question.service';
-import { ChartsModule } from 'ng2-charts';
 import { HomeComponent } from './home/home.component';
-import { AnswerService } from './services/answer.service';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AnswerService } from './services/answer.service';
   providers: [
     SessionService,
     QuestionService,
-    AnswerService
+    AnswerService,
+    LocationService
   ],
   bootstrap: [AppComponent]
 })

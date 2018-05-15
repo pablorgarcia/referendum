@@ -12,7 +12,7 @@
   </form>
 
   <!--form class="invisible"-->
-  <!--form class="invisible">
+  <form class="invisible">
     <h2>Signup</h2>
     <label>Username</label>
     <input type="text" [(ngModel)]="username" name="username" required />
@@ -32,16 +32,25 @@
       <option value="Other" selected>Other</option>
     </select>
     <br>
+    <!-- continentes -->
+    <select (click)="getCountries(value)" name="continent" required >
+      <option value="Africa">Africa</option>
+      <option value="Americas">Americas</option>
+      <option value="Asia">Asia</option>
+      <option value="Europe">Europe</option>
+      <option value="Oceania">Oceania</option>
+    </select>
+    <!-- paises del continente elegido -->
     <select [(ngModel)]="location" name="location" required >
-      <option value="London">London</option>
-      <option value="Berlin">Berlin</option>
-      <option value="San Francisco">San Francisco</option>
-      <option value="Sao Paulo">Sao Paulo</option>
-      <option value="Madrid">Madrid</option>
+      <!--option value=""></option-->
+    </select>
+    <!-- ciudades del pais elejido -->
+    <select [(ngModel)]="location" name="location" required >
+      <!--option value=""></option-->
     </select>
 
     <button (click)="signup()">signup</button>
-  </form-->
+  </form>
   
   <p class="error">{{ error }}</p>
   

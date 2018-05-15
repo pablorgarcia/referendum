@@ -5,14 +5,14 @@
 }
 
 .block-list p {
+  width: 3vh;
   padding: 0 3vw;
   margin: 0;
+  text-align: center;
 }
 
 .block-list h2 {
   font-size: 4vh;
   text-decoration: none;
 }
-.block-list h2:hover {
-  text-decoration: underline;
-}
+
