@@ -35,7 +35,7 @@
     </select>
     <br>
     <!-- continentes -->
-    <select (change)="getCountries(con.value)" #con name="continent" required >
+    <select (change)="getCountries(con.value)" #con [(ngModel)]="continent" name="continent" required >
       <option selected>Choose your continent</option>
       <option value="Africa">Africa</option>
       <option value="Americas">Americas</option>
@@ -44,11 +44,11 @@
       <option value="Oceania">Oceania</option>
     </select>
     <!-- paises del continente elegido -->
-    <select (change)="getCities(coun.value)" [(ngModel)]="country" #coun name="country" required>
-      <option *ngFor="let c of countries; let i = index" value="{{i}}">{{c.name}}</option>
+    <select *ngIf="continent" (change)="getCities(coun.value)" [(ngModel)]="country" #coun name="country" required>
+      <option *ngFor="let c of countries; let i = index" value="{{i}}" class="{{c.name}}">{{c.name}}</option>
     </select>
     <!-- ciudades del pais elejido -->
-    <select *ngIf="country" [(ngModel)]="location" name="location" required >
+    <select *ngIf="country" name="location" required >
       <option value="{{countries[index].capital}}" selected >{{countries[index].capital}}</option>
     </select>
 

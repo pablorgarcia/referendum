@@ -15,12 +15,14 @@ export class LoginFormComponent implements OnInit {
   email: String;
   age: String;
   genre: String; // Hombre, Mujer, Otro, Prefiero-no decirlo
-  location: Array<object>;
+  location = {city: '', country: '', continent: ''};
   isLogin: Boolean = false;
   error: String;
   countries: Array<any> = [];
   country: String;
+  cities: String;
   index: Number;
+
 
   constructor(
     public sessionService: SessionService,
@@ -52,9 +54,8 @@ export class LoginFormComponent implements OnInit {
   }
 
   getCountries(value) {
+    this.location.continent = value;
     this.locationService.getCountries(value).subscribe(c => {
-      console.log('c --------------------');
-      console.log(c);
       this.countries = c;
       /* c.subscribe(d => {
         console.log('------ lll -------');
@@ -64,7 +65,10 @@ export class LoginFormComponent implements OnInit {
   }
 
   getCities(i) {
-    console.log(i);
     this.index = Number(i);
+    this.location.country = this.countries[i].name;
+    this.location.city = this.countries[i].capital;
   }
+
+  //element.addEventListener("click", function(){ alert("Hello World!"); });
 }
