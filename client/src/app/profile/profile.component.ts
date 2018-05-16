@@ -22,8 +22,11 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // ESTO NO CARGA
     this.location = this.sessionService.user.location;
     console.log(this.sessionService.user);
+    console.log("---------------------------");
+    console.log(this.sessionService.user.location); // undefined
   }
 
   createQuest() {
@@ -31,10 +34,11 @@ export class ProfileComponent implements OnInit {
     const questData = {
       question: this.newQuest,
       location: this.location,
-      author: this.sessionService.user._id
+      author: this.sessionService.user._id,
+      age: this.age
     };
     console.log(questData);
-    this.questionService.createQuest(questData).subscribe();
+    this.questionService.sendQuestToAPI(questData).subscribe();
   }
 
 }
