@@ -16,8 +16,9 @@ export class LoginFormComponent implements OnInit {
   age: String;
   genre: String; // Hombre, Mujer, Otro, Prefiero-no decirlo
   location = {city: '', country: '', continent: ''};
-  isLogin: Boolean = false;
+  isLogin: Boolean;
   error: String;
+  continent: 
   countries: Array<any> = [];
   country: String;
   cities: String;
@@ -48,6 +49,8 @@ export class LoginFormComponent implements OnInit {
       password: this.password,
       email: this.email,
       location: this.location,
+      genre: this.genre,
+      age: this.age,
     };
     console.log(user);
     this.sessionService.signup(user).subscribe();
@@ -57,10 +60,6 @@ export class LoginFormComponent implements OnInit {
     this.location.continent = value;
     this.locationService.getCountries(value).subscribe(c => {
       this.countries = c;
-      /* c.subscribe(d => {
-        console.log('------ lll -------');
-        console.log(d.capital);
-      }); */
     });
   }
 
@@ -70,5 +69,4 @@ export class LoginFormComponent implements OnInit {
     this.location.city = this.countries[i].capital;
   }
 
-  //element.addEventListener("click", function(){ alert("Hello World!"); });
 }

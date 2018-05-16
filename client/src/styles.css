@@ -29,8 +29,11 @@ a {
 
   color: #313332;
   text-decoration: none;
+  cursor: pointer;
 }
 a:hover {
   color: #7A7F7D;
 }
+
+option, button { cursor: pointer; }
 
