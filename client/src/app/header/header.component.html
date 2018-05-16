@@ -1,3 +1,4 @@
 <header>
   <h1><a [routerLink]="['/']">referendum</a></h1>
+  <a *ngIf="sessionService.user" [routerLink]="['/profile']">Profile</a>
 </header>

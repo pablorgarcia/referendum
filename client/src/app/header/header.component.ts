@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../services/session.service';
+import { LocationService } from '../services/location.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public sessionService: SessionService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

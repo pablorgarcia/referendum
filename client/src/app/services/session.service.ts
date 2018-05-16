@@ -8,9 +8,9 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class SessionService {
 
-  user:any;
+  user: any;
   userEvent: EventEmitter<any> = new EventEmitter();
-  options: any = { withCredentials:true };
+  options: any = { withCredentials: true };
 
   constructor(private http: Http) {
     this.isLoggedIn().subscribe();
@@ -20,7 +20,7 @@ export class SessionService {
     return Observable.throw(e.json().message);
   }
 
-  handleUser(user?:object){
+  handleUser(user?: object) {
     this.user = user;
     this.userEvent.emit(this.user);
     return this.user;
@@ -41,7 +41,7 @@ export class SessionService {
   }
 
   logout() {
-    return this.http.get(`${environment.BASEURL}/api/auth/logout`,this.options)
+    return this.http.get(`${environment.BASEURL}/api/auth/logout`, this.options)
       .map(() => this.handleUser())
       .catch(this.handleError);
   }

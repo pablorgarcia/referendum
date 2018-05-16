@@ -11,7 +11,9 @@ import { LocationService } from '../services/location.service';
 export class LoginFormComponent implements OnInit {
   username: String;
   lastname: String;
+  username1: String;
   password: String;
+  password1: String;
   email: String;
   age: String;
   genre: String; // Hombre, Mujer, Otro, Prefiero-no decirlo
@@ -31,16 +33,12 @@ export class LoginFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if (this.sessionService.user) {
-      this.isLogin = true;
-    } else {
-      this.isLogin = false;
-    }
+    this.isLogin = true;
   }
 
   login() {
-    console.log(this.username, this.password);
-    this.sessionService.login(this.username, this.password).subscribe();
+    console.log(this.username1, this.password1);
+    this.sessionService.login(this.username1, this.password1).subscribe();
   }
 
   signup() {
@@ -67,6 +65,10 @@ export class LoginFormComponent implements OnInit {
     this.index = Number(i);
     this.location.country = this.countries[i].name;
     this.location.city = this.countries[i].capital;
+  }
+
+  showSignup() {
+    this.isLogin = !this.isLogin;
   }
 
 }

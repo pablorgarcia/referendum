@@ -9,6 +9,7 @@ import { NewQuestionComponent } from './new-question/new-question.component';
 export const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'question/:id', component: QuestionComponent},
+  {path: 'profile', component: ProfileComponent},
   // {path: 'auth/signup', component: LoginFormComponent},
   // {path: 'auth/login', component: LoginFormComponent},
   // {path: 'auth/loggedin', component: LoginFormComponent},
