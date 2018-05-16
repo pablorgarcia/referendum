@@ -9,7 +9,7 @@ const userSchema = new Schema(
     email: String,
     age: Number,
     genre: String, // Hombre, Mujer, Otro, Prefiero-no decirlo
-    location: [ {city: String , country: String ,  continent: String } ], // y si me conecto a un API que dandole la ciudad me de el pais y continente?
+    location: { city: String , country: String ,  continent: String },
     questionsCreated: [ { type: Schema.Types.ObjectId, ref: 'Question' } ],
     answers: [{ type: Schema.Types.ObjectId, ref: 'Answer' }]
   },
