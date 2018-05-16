@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../services/session.service';
 import { LocationService } from '../services/location.service';
 import { QuestionService } from '../services/question.service';
-import { ESRCH } from 'constants';
 
 @Component({
   selector: 'app-profile',
@@ -28,7 +27,6 @@ export class ProfileComponent implements OnInit {
   }
 
   createQuest() {
-  // aqui salto al servicio
 
     const questData = {
       question: this.newQuest,
