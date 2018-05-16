@@ -18,7 +18,7 @@ export class LoginFormComponent implements OnInit {
   location = {city: '', country: '', continent: ''};
   isLogin: Boolean;
   error: String;
-  continent: 
+  continent: String; // nuevo
   countries: Array<any> = [];
   country: String;
   cities: String;
