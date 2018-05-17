@@ -85,7 +85,6 @@ export class QuestionComponent implements OnInit {
       }, 0);
       this.doughnutChartData.push(dknow);
       console.log(this.doughnutChartData);
-
   }
 
 }

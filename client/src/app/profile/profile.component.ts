@@ -31,15 +31,12 @@ export class ProfileComponent implements OnInit {
   }
 
   createQuest() {
-
     const questData = {
       question: this.newQuest,
       location: this.loc,
       author: this.user._id,
       endDate: this.endDate
     };
-    console.log(questData);
-    console.log(this.location.city);
     this.questionService.sendQuestToAPI(questData).subscribe();
   }
 }
