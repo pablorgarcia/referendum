@@ -24,8 +24,6 @@ router.post("/", (req, res, next) => {
 
 // Retrive DETAIL
 router.get("/:id", (req, res, next) => {
-  // console.log('entra')
-  // console.log(req.params.id)
   Question.findById(req.params.id)
     .then(quest => res.json(quest))
     .catch(e => next(e));
