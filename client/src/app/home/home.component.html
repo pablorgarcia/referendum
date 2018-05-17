@@ -10,7 +10,7 @@
 <!--div *ngFor="let q of questions | filter: 'location'" class="block-list"-->
   <p>{{q.counter}}</p>
   <h2><a [routerLink]="['/question', q._id]">{{q.question}}</a></h2>
-  <span>{{q.location.city}} Madrid</span>
+  <span>{{q.location}}</span>
 </div>
 
 </main>

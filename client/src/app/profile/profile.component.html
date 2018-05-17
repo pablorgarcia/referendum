@@ -2,12 +2,12 @@
 
 <div *ngIf="sessionService.user">
 
-<form >
+<form>
   <label>Create a new question</label>
   <input type="text" [(ngModel)]="newQuest" name="newQuest" />
 
   <!-- continentes -->
-  <select name="location" required >
+  <select name="location" [(ngModel)]="loc" required >
     <option selected disabled>Choose location</option>
     <option value="{{location.city}}">{{location.city}}</option>
     <option value="{{location.country}}">{{location.country}}</option>

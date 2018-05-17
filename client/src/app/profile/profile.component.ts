@@ -13,7 +13,8 @@ export class ProfileComponent implements OnInit {
   newQuest: String;
   endDate: String;
   user: any;
-  location = { city: '', country: '', continent: '' };
+  location: any;
+  loc: String;
 
   constructor(
     public sessionService: SessionService,
@@ -33,11 +34,12 @@ export class ProfileComponent implements OnInit {
 
     const questData = {
       question: this.newQuest,
-      location: this.location,
+      location: this.loc,
       author: this.user._id,
       endDate: this.endDate
     };
     console.log(questData);
+    console.log(this.location.city);
     this.questionService.sendQuestToAPI(questData).subscribe();
   }
 }
