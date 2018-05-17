@@ -1,20 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { SessionService } from '../services/session.service';
-import { LocationService } from '../services/location.service';
-import { QuestionService } from '../services/question.service';
+import { Component, OnInit } from "@angular/core";
+import { SessionService } from "../services/session.service";
+import { LocationService } from "../services/location.service";
+import { QuestionService } from "../services/question.service";
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: "app-profile",
+  templateUrl: "./profile.component.html",
+  styleUrls: ["./profile.component.css"]
 })
-
 export class ProfileComponent implements OnInit {
-
   newQuest: String;
-  location: Object = {city: '', country: '', continent: ''};
   age: String;
-
+  user: any;
+  location: Object = { city: '', country: '', continent: '' };
   constructor(
     public sessionService: SessionService,
     public locationService: LocationService,
@@ -22,11 +20,11 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // ESTO NO CARGA
-    this.location = this.sessionService.user.location;
-    console.log(this.sessionService.user);
-    console.log("---------------------------");
-    console.log(this.sessionService.user.location); // undefined
+    this.sessionService.isLoggedIn().subscribe(u => {
+      console.log(u);
+      this.user = u;
+      this.location = u.location;
+    });
   }
 
   createQuest() {
@@ -40,5 +38,4 @@ export class ProfileComponent implements OnInit {
     console.log(questData);
     this.questionService.sendQuestToAPI(questData).subscribe();
   }
-
 }
