@@ -5,9 +5,9 @@ const questionSchema = new Schema(
   {
     question: String,
     author: { type: Schema.Types.ObjectId, ref: 'User' },
-    endDate: Date,
-    location: String, // 2dsphere
-    counter: Number
+    location: Object,
+    endDate: String,
+    counter: { type: Number, default: 0 }
   },
   {
     timestamps: {

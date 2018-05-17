@@ -30,7 +30,11 @@ router.post('/signup', (req, res, next) => {
 
         const theUser = new User({
           username,
-          password: hashPass
+          password: hashPass,
+          email,
+          location,
+          genre,
+          age
         });
     
         return theUser.save().then( user => logInPromise(user,req));

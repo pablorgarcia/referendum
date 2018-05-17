@@ -7,7 +7,7 @@ const userSchema = new Schema(
     lastname: String,
     password: String,
     email: String,
-    age: Number,
+    age: String,
     genre: String, // Hombre, Mujer, Otro, Prefiero-no decirlo
     location: { city: String , country: String ,  continent: String },
     questionsCreated: [ { type: Schema.Types.ObjectId, ref: 'Question' } ],
