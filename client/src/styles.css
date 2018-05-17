@@ -12,6 +12,7 @@ body {
   font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
   text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+  padding: 0 0 12vh;
 }
 
 h1 {
@@ -49,3 +50,4 @@ option, button { cursor: pointer; }
 main {
   padding: 3vh 6vw;
 }
+

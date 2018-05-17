@@ -3,6 +3,8 @@ footer {
   background-color: #313332;
   padding: 1vh 6vw;
   width: calc(100% - 12vw);
+  position: fixed;
+  bottom: 0;
 }
 
 footer p {
