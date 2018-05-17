@@ -1,10 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Miriam+Libre:700');
+@import url('https://fonts.googleapis.com/css?family=Miriam+Libre:700|Hind:400');
 
 body {
   margin: 0;
   background-color: #EBEBEB;
   color: #313332;
+  font-family: 'Hind', sans-serif;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 }
 
 h1 {

@@ -13,8 +13,7 @@ export class ProfileComponent implements OnInit {
   newQuest: String;
   endDate: String;
   user: any;
-  location: any;
-  loc: String;
+  location: Object;
 
   constructor(
     public sessionService: SessionService,
@@ -31,9 +30,10 @@ export class ProfileComponent implements OnInit {
   }
 
   createQuest() {
+
     const questData = {
       question: this.newQuest,
-      location: this.loc,
+      location: this.location,
       author: this.user._id,
       endDate: this.endDate
     };

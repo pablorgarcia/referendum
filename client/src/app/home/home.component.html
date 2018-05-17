@@ -1,17 +1,26 @@
 <main>
 
-  <p>Question filter by location:</p>
-  <div class="eyelash" [(ngModel)]="userLocation">
-    <button value="{{userLocation.city}}">{{userLocation.city}}</button>
-    <button>{{userLocation.country}}</button>
-    <button>{{userLocation.continent}}</button>
-  </div>
-  
-<!--div *ngFor="let q of questions | filter: 'userLocation': userLocation" class="block-list"-->
-<div *ngFor="let q of questions  " class="block-list">
+<p>Question filter by location:</p>
+<div class="eyelash">
+  <button (click)="getLocation(userLocation.city)">{{userLocation.city}}</button>
+  <button (click)="getLocation(userLocation.country)">{{userLocation.country}}</button>
+  <button (click)="getLocation(userLocation.continent)">{{userLocation.continent}}</button>
+</div>
+
+<div *ngIf="sessionService.user">
+<div *ngFor="let q of questionsByLocation" class="block-list">
   <p>{{q.counter}}</p>
   <h2><a [routerLink]="['/question', q._id]">{{q.question}}</a></h2>
   <span>{{q.location}}</span>
+</div>
+</div>
+
+<div *ngIf="!sessionService.user">
+<div *ngFor="let q of questions" class="block-list">
+  <p>{{q.counter}}</p>
+  <h2><a [routerLink]="['/question', q._id]">{{q.question}}</a></h2>
+  <span>{{q.location}}</span>
+</div>
 </div>
 
 </main>

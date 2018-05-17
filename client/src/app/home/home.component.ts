@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   userLocation = { city: '', country: '', continent: '' };
   questions: Array<any> = [{}];
-  location: any;
+  questionsByLocation: Array<any> = [{}];
 
   constructor(
     public sessionService: SessionService,
@@ -20,13 +20,18 @@ export class HomeComponent implements OnInit {
   ) {
     this.questionService.getList().subscribe(q => {
       this.questions = q;
-      this.location = location;
     });
   }
 
   ngOnInit() {
     this.sessionService.isLoggedIn().subscribe(u => {
       this.userLocation = u.location;
+    });
+  }
+
+  getLocation(value) {
+    this.questionService.getListbyLocation(value).subscribe(q => {
+      this.questionsByLocation = q;
     });
   }
 

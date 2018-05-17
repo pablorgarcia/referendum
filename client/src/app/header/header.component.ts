@@ -9,8 +9,14 @@ import { LocationService } from '../services/location.service';
 })
 export class HeaderComponent implements OnInit {
 
+  username: String;
+
   constructor(public sessionService: SessionService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.sessionService.isLoggedIn().subscribe(u => {
+      this.username = u.username;
+    });
+  }
 
 }
