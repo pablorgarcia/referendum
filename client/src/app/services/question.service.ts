@@ -19,7 +19,7 @@ export class QuestionService {
   }
 
   getListbyLocation(location) {
-    return this.http.get(`${environment.BASEURL}/api/question/${location}`)
+    return this.http.get(`${environment.BASEURL}/api/question/location/${location}`)
       .map((res) => res.json());
   }
 

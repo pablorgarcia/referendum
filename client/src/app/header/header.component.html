@@ -1,4 +1,6 @@
+<div *ngIf="location">
 <header>
-  <h1><a [routerLink]="['/']">referendum</a></h1>
-  <p>Welcome <b>{{username}}</b>. Do you want create a <a *ngIf="sessionService.user" [routerLink]="['/profile']"><b>new question</b></a>?</p>
+  <h1><a [routerLink]="['/']">referendum</a></h1><p class="info-right">Do you want create a <a *ngIf="sessionService.user" [routerLink]="['/profile']"><b>new question</b></a>?</p>
+  <p>Welcome <b>{{username}}</b>. You are from <b>{{location.city}}</b>, <b>{{location.country}}</b>, <b>{{location.continent}}</b>.</p>
 </header>
+</div>

@@ -2,8 +2,8 @@
 <div *ngIf="sessionService.user && location">
 
 <form>
-  <label>Create a new question</label>
-  <input type="text" [(ngModel)]="newQuest" name="newQuest" />
+  <p>Create a new question. Remember that the answers will be "Yes", "No", "I dont know".</p>
+  <input type="text" [(ngModel)]="newQuest" name="newQuest" placeholder="Write here your quest..." />
 
   <!-- continentes -->
   <select name="location" [(ngModel)]="location" required >

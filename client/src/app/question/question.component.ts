@@ -30,15 +30,14 @@ export class QuestionComponent implements OnInit {
     public sessionService: SessionService,
     public questionService: QuestionService,
     private answerService: AnswerService
-  ) {
-    this.route.params.subscribe(params => {
-      this.questionService.getQuestId(params.id).subscribe(q => this.question = q);
-      this.questionId = params.id;
-    });
-  }
+  ) {}
 
   ngOnInit() {
     this.user = this.sessionService.user;
+    this.route.params.subscribe(params => {
+      this.questionService.getQuestId(params.id).subscribe(q => {console.log(q);this.question = q});
+      this.questionId = params.id;
+    });
   }
 
   // events chart
