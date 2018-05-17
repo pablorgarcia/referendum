@@ -8,18 +8,20 @@ const fields = Object.keys(_.omit(Question.schema.paths, ["__v", "_id"]));
 
 // Retrive ALL
 router.get("/", (req, res, next) => {
-  Question.find({location})
+  Question.find()
     .sort({counter: -1})
     .then(quests => res.json(quests))
     .catch(e => next(e));
 });
 
+const loc = ['city', 'country', 'continent'];
+  
 // por parametros
-router.get("/", (req, res, next) => {
-Question.find()
-  .sort({counter: -1})
-  .then(quests => res.json(quests))
-  .catch(e => next(e));
+router.get("/:location", (req, res, next) => {
+  Question.find({location: req.params.location})
+    .sort({counter: -1})
+    .then(quests => res.json(quests))
+    .catch(e => next(e));
 });
 
 // Create

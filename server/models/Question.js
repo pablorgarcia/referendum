@@ -5,7 +5,7 @@ const questionSchema = new Schema(
   {
     question: String,
     author: { type: Schema.Types.ObjectId, ref: 'User' },
-    location: String,
+    location: Object,
     endDate: String,
     counter: { type: Number, default: 0 }
   },
