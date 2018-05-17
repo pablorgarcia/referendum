@@ -23,7 +23,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.sessionService.isLoggedIn().subscribe(u => {
-      console.log(u);
       this.user = u;
       this.location = u.location;
     });
@@ -33,9 +32,9 @@ export class ProfileComponent implements OnInit {
 
     const questData = {
       question: this.newQuest,
-      location: this.location,
       author: this.user._id,
-      endDate: this.endDate
+      endDate: this.endDate,
+      location: this.location,
     };
     this.questionService.sendQuestToAPI(questData).subscribe();
   }

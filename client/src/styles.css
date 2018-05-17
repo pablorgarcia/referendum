@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Miriam+Libre:700|Hind:400');
+@import url('https://fonts.googleapis.com/css?family=Miriam+Libre:700|Hind:400:700');
 
 body {
   margin: 0;
@@ -41,6 +41,8 @@ a {
 a:hover {
   color: #7A7F7D;
 }
+
+b { font-weight: 700; }
 
 option, button { cursor: pointer; }
 

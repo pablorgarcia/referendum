@@ -1,13 +1,12 @@
-<p>profile works!</p>
 
-<div *ngIf="sessionService.user">
+<div *ngIf="sessionService.user && location">
 
 <form>
   <label>Create a new question</label>
   <input type="text" [(ngModel)]="newQuest" name="newQuest" />
 
   <!-- continentes -->
-  <select name="location" [(ngModel)]="loc" required >
+  <select name="location" [(ngModel)]="location" required >
     <option selected disabled>Choose location</option>
     <option value="{{location.city}}">{{location.city}}</option>
     <option value="{{location.country}}">{{location.country}}</option>

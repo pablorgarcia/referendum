@@ -1,5 +1,4 @@
 <header>
   <h1><a [routerLink]="['/']">referendum</a></h1>
-  <a *ngIf="sessionService.user" [routerLink]="['/profile']">New question</a>
-  <p>{{username}}</p>
+  <p>Welcome <b>{{username}}</b>. Do you want create a <a *ngIf="sessionService.user" [routerLink]="['/profile']"><b>new question</b></a>?</p>
 </header>

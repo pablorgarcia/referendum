@@ -13,7 +13,6 @@ export class QuestionService {
   constructor(public http: Http) {}
 
   // Retrive ALL
-  // si tienes valores, filtramelos y traemelos, si no traemelo todo
   getList() {
     return this.http.get(`${environment.BASEURL}/api/question`)
       .map((res) => res.json());
@@ -23,14 +22,6 @@ export class QuestionService {
     return this.http.get(`${environment.BASEURL}/api/question/${location}`)
       .map((res) => res.json());
   }
-
-/* Wadaloop: Llamada a la BBDD ordenado por distancia
-Product.find({ APIlocation: { $near: { $geometry: { type: "Point", coordinates: [userLoc.long, userLoc.lat] }}} })
-  .then(theProduct => {
-    res.render("index", { user: req.user, theProduct, userLoc });
-  })
-  .catch(err => { console.log(err); });
-*/
 
   // Create
   sendQuestToAPI(fields) {
