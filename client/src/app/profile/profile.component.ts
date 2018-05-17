@@ -9,10 +9,12 @@ import { QuestionService } from "../services/question.service";
   styleUrls: ["./profile.component.css"]
 })
 export class ProfileComponent implements OnInit {
+
   newQuest: String;
   endDate: String;
   user: any;
   location = { city: '', country: '', continent: '' };
+
   constructor(
     public sessionService: SessionService,
     public locationService: LocationService,

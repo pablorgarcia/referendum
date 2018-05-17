@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../services/session.service';
 import { QuestionService } from '../services/question.service';
 
 @Component({
@@ -7,15 +8,23 @@ import { QuestionService } from '../services/question.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  userLocation = { city: '', country: '', continent: '' };
   questions: Array<any> = [{}];
 
-  constructor(public questionService: QuestionService) {
+  constructor(
+    public sessionService: SessionService,
+    public questionService: QuestionService
+  ) {
     this.questionService.getList().subscribe(q => {
       this.questions = q;
-    }
-    );
+    });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.sessionService.isLoggedIn().subscribe(u => {
+      this.userLocation = u.location;
+    });
+  }
 
 }

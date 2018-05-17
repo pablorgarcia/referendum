@@ -1,9 +1,9 @@
 <main>
 
-<div [(ngModel)]="location" class="eyelash">
-  <p value="me traigo la ciudad del usuario">your city</p>
-  <p>country</p>
-  <p>continent</p>
+<div class="eyelash">
+  <p>{{userLocation.city}}</p>
+  <p>{{userLocation.country}}</p>
+  <p>{{userLocation.continent}}</p>
 </div>
 
 <div *ngFor="let q of questions" class="block-list">
