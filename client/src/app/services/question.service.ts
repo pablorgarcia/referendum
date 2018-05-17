@@ -32,7 +32,7 @@ Product.find({ APIlocation: { $near: { $geometry: { type: "Point", coordinates: 
 
   // Create
   sendQuestToAPI(fields) {
-    return this.http.post(`${environment.BASEURL}/api/question`, {fields})
+    return this.http.post(`${environment.BASEURL}/api/question`, fields)
       .map((res) => res.json());
   }
 

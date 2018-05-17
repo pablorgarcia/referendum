@@ -17,6 +17,7 @@ import { QuestionComponent } from './question/question.component';
 import { NewQuestionComponent } from './new-question/new-question.component';
 import { HomeComponent } from './home/home.component';
 import { ChartsModule } from 'ng2-charts';
+import { PipePipe } from './pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ChartsModule } from 'ng2-charts';
     ProfileComponent,
     QuestionComponent,
     NewQuestionComponent,
-    HomeComponent
+    HomeComponent,
+    PipePipe
   ],
   imports: [
     BrowserModule,

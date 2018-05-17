@@ -10,9 +10,9 @@ import { QuestionService } from "../services/question.service";
 })
 export class ProfileComponent implements OnInit {
   newQuest: String;
-  age: String;
+  endDate: String;
   user: any;
-  location: Object = { city: '', country: '', continent: '' };
+  location = { city: '', country: '', continent: '' };
   constructor(
     public sessionService: SessionService,
     public locationService: LocationService,
@@ -32,8 +32,8 @@ export class ProfileComponent implements OnInit {
     const questData = {
       question: this.newQuest,
       location: this.location,
-      author: this.sessionService.user._id,
-      age: this.age
+      author: this.user._id,
+      endDate: this.endDate
     };
     console.log(questData);
     this.questionService.sendQuestToAPI(questData).subscribe();

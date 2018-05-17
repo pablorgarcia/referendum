@@ -1,8 +1,13 @@
 <main>
 
-<!-- <i>home works!</i> -->
+<div [(ngModel)]="location" class="eyelash">
+  <p value="me traigo la ciudad del usuario">your city</p>
+  <p>country</p>
+  <p>continent</p>
+</div>
 
 <div *ngFor="let q of questions" class="block-list">
+<!--div *ngFor="let q of questions | filter: 'location'" class="block-list"-->
   <p>{{q.counter}}</p>
   <h2><a [routerLink]="['/question', q._id]">{{q.question}}</a></h2>
   <span>Madrid</span>
