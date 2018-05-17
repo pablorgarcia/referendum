@@ -34,7 +34,7 @@ export class ProfileComponent implements OnInit {
       question: this.newQuest,
       author: this.user._id,
       endDate: this.endDate,
-      location: this.location,
+      location: this.location
     };
     this.questionService.sendQuestToAPI(questData).subscribe();
   }

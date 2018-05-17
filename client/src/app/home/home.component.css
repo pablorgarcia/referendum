@@ -16,6 +16,10 @@
   border-left: 1px;
 }
 
+.eyelash button {
+  margin: 0 .5vw;
+}
+
 .block-list {
   display: flex;
   flex-wrap: wrap;
