@@ -14,7 +14,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { QuestionComponent } from './question/question.component';
-import { NewQuestionComponent } from './new-question/new-question.component';
 import { HomeComponent } from './home/home.component';
 import { ChartsModule } from 'ng2-charts';
 import { PipePipe } from './pipe.pipe';
@@ -27,7 +26,6 @@ import { PipePipe } from './pipe.pipe';
     FooterComponent,
     ProfileComponent,
     QuestionComponent,
-    NewQuestionComponent,
     HomeComponent,
     PipePipe
   ],

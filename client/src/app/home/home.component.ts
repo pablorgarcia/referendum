@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../services/session.service';
 import { QuestionService } from '../services/question.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   userLocation = { city: '', country: '', continent: '' };
   questions: Array<any> = [{}];
+  location: any;
 
   constructor(
     public sessionService: SessionService,
@@ -18,6 +20,7 @@ export class HomeComponent implements OnInit {
   ) {
     this.questionService.getList().subscribe(q => {
       this.questions = q;
+      this.location = location;
     });
   }
 
