@@ -46,3 +46,6 @@ b { font-weight: 700; }
 
 option, button { cursor: pointer; }
 
+main {
+  padding: 3vh 6vw;
+}

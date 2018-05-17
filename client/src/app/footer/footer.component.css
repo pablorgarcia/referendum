@@ -1,6 +1,15 @@
 footer {
-  height: 10vh;
   color: #F2F2F2;
   background-color: #313332;
-  padding: 3vh 6vw;
+  padding: 1vh 6vw;
+  width: calc(100% - 12vw);
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  margin: 0;
+  color: #F2F2F2;
 }

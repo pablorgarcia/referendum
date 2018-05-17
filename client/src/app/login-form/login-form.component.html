@@ -1,4 +1,4 @@
-
+<main>
 <div *ngIf="!sessionService.user">
 
   <!--form class="invisible"-->
@@ -57,10 +57,12 @@
     <button (click)="signup()">signup</button>
   </form>
   
-  <p>Don't have an account? <a (click)="showSignup()">Sign up</a></p>
+  <p>Don't have an account? <a (click)="showSignup()"><b>Sign up</b></a></p>
 
   <p class="error">{{ error }}</p>
   
 </div>
 
+
 <button *ngIf="sessionService.user" (click)="sessionService.logout().subscribe()">logout</button>
+</main>
