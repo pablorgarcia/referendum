@@ -20,9 +20,16 @@ Cambias el get por un post
 Con el fin de mandarle en el body el objeto location del user
 Que contiene la ciudad, pais, y continente.
 Aqui dentro haces tres queries, cada con uno de esos campos.
-y pusheas a un array cada respuesta
+y pusheas a un array cada
 */
-router.post("/location", (req, res, next) => {
+router.get("/location/:location", (req, res, next) => {
+  Question.find({location: req.params.location})
+    .sort({counter: -1})
+    .then(quests => res.json(quests))
+    .catch(e => next(e));
+});
+
+/* router.post("/location", (req, res, next) => {
   let questions = [];
   
   Question.find({location: req.body.location.city})
@@ -38,8 +45,8 @@ router.post("/location", (req, res, next) => {
             })
     })
     .catch(e => next(e));
-    })
-});
+})
+}); */
 
 // Create
 router.post("/", (req, res, next) => {
