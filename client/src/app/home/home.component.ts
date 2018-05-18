@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
 
   getLocation(value) {
     this.questionService.getListbyLocation(value).subscribe(q => {
+      console.log(q)
       this.questionsByLocation = q;
     });
   }
